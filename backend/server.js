@@ -8,12 +8,12 @@ app.use(express.json());
 
 // เชื่อม PostgreSQL
 const pool = new Pool({
-  host: "localhost",
-  user: "postgres",
-  password: "maphang2549",
-  database: "login_system",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+
 
 
 // LOGIN
