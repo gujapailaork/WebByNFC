@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          container: { center: true, padding: { DEFAULT: '1rem', lg: '2rem' } },
+          colors: { border: '#e5e7eb' }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-gray-100 dark:bg-slate-900 flex items-center justify-center min-h-screen transition-colors duration-300">
+
+  <button onclick="toggleDark()" 
+    class="absolute top-6 right-6 px-4 py-2 rounded-xl bg-gray-200 dark:bg-slate-700 dark:text-white transition">
+    <i data-lucide="sun" class="h-6 w-6 block dark:hidden"></i>
+    <i data-lucide="moon" class="h-6 w-6 hidden dark:block"></i>
+  </button>
+
+  <div class="w-full max-w-md bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl transition">
+
+    <h2 class="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+      Login
+    </h2>
+
+    <!-- ✅ เพิ่ม id ตรงนี้ -->
+    <form id="loginForm" class="space-y-5">
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-300">
+          User
+        </label>
+        <!-- ✅ เพิ่ม id -->
+        <input type="text" id="username" placeholder="Enter your user"
+          class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-300">
+          Password
+        </label>
+        <!-- ✅ เพิ่ม id -->
+        <input type="password" id="password" placeholder="Enter your password"
+          class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+      </div>
+
+      <button type="submit"
+        class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl transition">
+        Sign In
+      </button>
+
+    </form>
+
+    <p class="text-center text-sm mt-6 text-gray-600 dark:text-gray-400">
+      Don’t have an account? <a href="#" class="text-blue-500 hover:underline">Register</a>
+    </p>
+
+  </div>
+
+<script>
+function toggleDark() {
+  document.documentElement.classList.toggle('dark')
+  lucide.createIcons()
+}
+lucide.createIcons()
+
+// ✅ ระบบ Login ทำงานแน่นอน
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    const res = await fetch("http://127.0.0.1:3000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await res.json();
+    console.log("Response:", data);
+
+    if (data.success) {
+      window.location.href = "index.html"; // ✅ เปลี่ยนหน้า
+    } else {
+      alert("Login failed");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Server error");
+  }
+});
+</script>
+
+</body>
+</html>
