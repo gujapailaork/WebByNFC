@@ -10,7 +10,7 @@ app.use(express.json());
 const pool = new Pool({
   host: "localhost",
   user: "postgres",
-  password: "1234",
+  password: "maphang2549",
   database: "login_system",
   port: 5432,
 });
@@ -20,17 +20,23 @@ const pool = new Pool({
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
+  console.log("BODY:", req.body);   // 👈 เพิ่มบรรทัดนี้
+
   try {
     const result = await pool.query(
       "SELECT * FROM users WHERE username = $1",
       [username.trim()]
     );
 
+    console.log("DB result:", result.rows);  // 👈 เพิ่ม
+
     if (result.rows.length === 0) {
       return res.json({ success: false });
     }
 
     const user = result.rows[0];
+
+    console.log("Compare:", password, user.password); // 👈 เพิ่ม
 
     if (password.trim() === user.password.trim()) {
       return res.json({ success: true });
@@ -40,9 +46,10 @@ app.post("/login", async (req, res) => {
 
   } catch (err) {
     console.log("Error:", err);
-    return res.json({ success: false });
+    return res.status(500).json({ success: false });
   }
 });
+
 
 
 
