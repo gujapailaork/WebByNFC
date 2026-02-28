@@ -1,20 +1,37 @@
+import { Pool } from "pg";
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
+});
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false, message: "Method not allowed" });
+    return res.status(405).json({ success: false });
   }
 
+  const { username, password } = req.body;
+
   try {
-    const response = await fetch("https://webbynfc-backend.onrender.com/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(req.body),
-    });
+    const result = await pool.query(
+      "SELECT * FROM users WHERE username = $1",
+      [username.trim()]
+    );
 
-    const data = await response.json();
-    return res.status(200).json(data);
+    if (result.rows.length === 0) {
+      return res.json({ success: false });
+    }
 
-  } catch (error) {
-    console.error("Proxy Error:", error);
-    return res.status(500).json({ success: false, message: "Server error" });
+    const user = result.rows[0];
+
+    if (password.trim() === user.password.trim()) {
+      return res.json({ success: true });
+    } else {
+      return res.json({ success: false });
+    }
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ success: false });
   }
 }
