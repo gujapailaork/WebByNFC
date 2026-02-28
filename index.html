@@ -86,20 +86,19 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
   const password = document.getElementById("password").value;
 
   try {
-    const res = await fetch("https://webbynfc-backend.onrender.com", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password })
-    });
+    const res = await fetch("/api/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ username, password })
+});
 
     const data = await res.json();
-    console.log("Response:", data);
 
-    if (data.success) {
-      window.location.href = "index.html";
-    } else {
-      alert("Login failed");
-    }
+if (data.success) {
+  window.location.href = "home.html"; 
+} else {
+  alert(data.message || "Login failed");
+}
 
   } catch (error) {
     console.error("Error:", error);
