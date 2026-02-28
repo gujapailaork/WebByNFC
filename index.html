@@ -1,15 +1,11 @@
-<!doctype html>
-<html lang="EN" class="dark">
-
+<!DOCTYPE html>
+<html lang="en" class="">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Website-mhzmmprt</title>
-  <meta name="description" content="Website" />
-  <!-- Tailwind CSS CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config (optional tweaks)
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -20,462 +16,98 @@
       }
     }
   </script>
-  <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
-  <link rel="stylesheet" href="index.css">
   <style>
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-  <!-- NAVBAR -->
-  <header
-    class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
-    <div class="container mx-auto flex h-14 items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="https://avatars.githubusercontent.com/u/9919?s=64" alt="logo"
-          class="h-7 w-7 rounded-xl ring-1 ring-slate-200 dark:ring-slate-800 object-cover" />
-        <span class="font-semibold tracking-tight">Website</span>
-      </div>
-      <nav class="hidden items-center gap-6 md:flex text-sm text-slate-600 dark:text-slate-400">
-        <a href="#home" class="hover:text-slate-900 dark:hover:text-slate-50 font-weight: bold">Home</a>
-        <a href="#about" class="hover:text-slate-900 dark:hover:text-slate-50 font-weight: bold">About</a>
-        <a href="#projects" class="hover:text-slate-900 dark:hover:text-slate-50 font-weight: bold">Projects</a>
-        <a href="#blog" class="hover:text-slate-900 dark:hover:text-slate-50 font-weight: bold">Blog</a>
-        <a href="#contact" class="hover:text-slate-900 dark:hover:text-slate-50 font-weight: bold">Contact</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <button id="themeToggle"
-          class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
-          <i data-lucide="sun" class="h-4 w-4 block dark:hidden"></i>
-          <i data-lucide="moon" class="h-4 w-4 hidden dark:block"></i>
-        </button>
-        <a href="#contact"
-          class="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-900 px-3 py-2 text-sm font-medium text-white transition hover:opacity-90 dark:border-slate-700 dark:bg-white dark:text-slate-900">
-          Hire me <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-        </a>
-      </div>
-    </div>
-  </header>
+<body class="bg-gray-100 dark:bg-slate-900 flex items-center justify-center min-h-screen transition-colors duration-300">
 
-  <!-- HERO -->
-<section id="home" class="border-b border-slate-200 dark:border-slate-800 py-12 md:py-20">
-  <div class="container grid items-start gap-10 md:grid-cols-2">
-    
-    <div class="flex flex-col gap-10">
+  <button onclick="toggleDark()" 
+    class="absolute top-6 right-6 px-4 py-2 rounded-xl bg-gray-200 dark:bg-slate-700 dark:text-white transition">
+    <i data-lucide="sun" class="h-6 w-6 block dark:hidden"></i>
+    <i data-lucide="moon" class="h-6 w-6 hidden dark:block"></i>
+  </button>
+
+  <div class="w-full max-w-md bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl transition">
+
+    <h2 class="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+      Login
+    </h2>
+
+    <!-- ✅ เพิ่ม id ตรงนี้ -->
+    <form id="loginForm" class="space-y-5">
+
       <div>
-        <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
-          <span class="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-500"></span>
-          Worked On
-        </div>
-        <h1 class="mt-4 text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
-          Hi I'm <span class="text-indigo-600 dark:text-indigo-400">Maphang</span><br> 
-          Made this website because <br>I had nothing to do.
-        </h1>
-        <p class="mt-4 max-w-xl text-slate-600 dark:text-slate-400">
-          Faculty of Science, Information Technology
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#projects" class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700">
-            <i data-lucide="cpu" class="h-4 w-4"></i> View Projects
-          </a>
-          <a href="#blog" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800">
-            <i data-lucide="book-open" class="h-4 w-4"></i> Read Blog
-          </a>
-        </div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-300">
+          User
+        </label>
+        <!-- ✅ เพิ่ม id -->
+        <input type="text" id="username" placeholder="Enter your user"
+          class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
       </div>
 
-      <div class="w-full space-y-4">
-        <div class="card">
-          <div class="card-left">
-            <div class="icon">🎓</div>
-            <div class="card-content">
-              <h3>Faculty of science, Information Technology</h3>
-              <h4>Silpakorn University</h4>
-              <p>Studying Information Technology.</p>
-            </div>
-          </div>
-          <div class="date">2024 - Present</div>
-        </div>
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-300">
+          Password
+        </label>
+        <!-- ✅ เพิ่ม id -->
+        <input type="password" id="password" placeholder="Enter your password"
+          class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+      </div>
 
-        <div class="card">
-          <div class="card-left">
-            <div class="icon">🧧</div>
-            <div class="card-content">
-              <h3>Chinese Program</h3>
-              <h4>Benjamarachutit Ratchaburi</h4>
-              <p>BJ110 </p>
-            </div>
-          </div>
-          <div class="date">2018 - 2023</div>
-        </div>
-      </div>
-    </div>
+      <button type="submit"
+        class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl transition">
+        Sign In
+      </button>
 
-    <div class="sticky top-24">
-      <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div class="aspect-video w-full bg-[#FBB62C]">
-          <img src="img/homepj4.jpg" alt="project" class="h-full w-full object-contain" />
-        </div>
-        <div class="flex items-center justify-between p-4">
-          <div class="text-sm">
-            <div class="font-medium">Projects Dashboard</div>
-            <div class="text-slate-500 dark:text-slate-400">All project by mhzmmprt</div>
-          </div>
-          <a href="#projects" class="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-medium dark:border-slate-700">
-            Open <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="mt-6 flex flex-wrap gap-2 justify-center md:justify-start">
-        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200">Html</span>
-        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200">Css</span>
-        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200">Javascript</span>
-        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200">Node.js</span>
-        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200">PHP</span>
-      </div>
-    </div>
+    </form>
+
+    <p class="text-center text-sm mt-6 text-gray-600 dark:text-gray-400">
+      Don’t have an account? <a href="#" class="text-blue-500 hover:underline">Register</a>
+    </p>
 
   </div>
-</section>
 
-  <!-- ABOUT -->
-  <section id="about" class="border-b border-slate-200 py-12 dark:border-slate-800 md:py-20">
-    <div class="container">
-      <div class="mb-8 flex flex-col gap-3 md:mb-12 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">About</div>
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Get to know me</h2>
-          <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">If you'd like to know me better, feel free to say
-            hi. I've had my shots, I don't bite!</p>
-        </div>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <!-- Card 1 -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">About Me</h3>
-          <p class="text-sm text-slate-500">A little about me</p>
-          <div class="mt-3 space-y-2 text-sm">
-            I'm a second-year student at Silpakorn University, Faculty of Science, majoring in Information Technology. I
-            created this site in my free time to share the things I've learned and my experiences along the way.
-            <br><br>
-            I first got interested in technology back in high school, and ever since then I've been exploring and
-            learning on my own sometimes through mistakes, but always through real-life experiences.
-          </div>
+<script>
+function toggleDark() {
+  document.documentElement.classList.toggle('dark')
+  lucide.createIcons()
+}
+lucide.createIcons()
 
-        </div>
+// ✅ ระบบ Login ทำงานแน่นอน
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-        <!-- Card 2 -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">Technologies</h3>
-          <p class="text-sm text-slate-500">A list of technologies</p>
-          <div class="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 text-3xl">
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-            <i class="devicon-typescript-plain tech-icon"></i>
-            <i class="devicon-javascript-plain tech-icon"></i>
-            <i class="devicon-python-plain tech-icon"></i>
-            <i class="devicon-php-plain tech-icon"></i>
-            <i class="devicon-java-plain tech-icon"></i>
-            <i class="devicon-cplusplus-plain tech-icon"></i>
-            <i class="devicon-c-plain tech-icon"></i>
-            <i class="devicon-csharp-plain tech-icon"></i>
-            <i class="devicon-nodejs-plain tech-icon"></i>
-            <i class="devicon-react-original tech-icon"></i>
-            <i class="devicon-angularjs-plain tech-icon"></i>
-            <i class="devicon-express-original tech-icon"></i>
-            <i class="devicon-wordpress-plain tech-icon"></i>
-            <i class="devicon-mongodb-plain tech-icon"></i>
-            <i class="devicon-postgresql-plain tech-icon"></i>
-            <i class="devicon-docker-plain tech-icon"></i>
-            <i class="devicon-github-original tech-icon"></i>
-            <i class="devicon-git-plain tech-icon"></i>
-            <i class="devicon-vscode-plain tech-icon"></i>
-            <i class="devicon-figma-plain tech-icon"></i>
-            <i class="devicon-photoshop-plain tech-icon"></i>
-            <i class="devicon-lightroom-plain tech-icon"></i>
-          </div>
-        </div>
-
-
-        <!-- Card 3 -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">Link</h3>
-          <p class="text-sm text-slate-500">Find me on the internet</p>
-          <div class="mt-3 grid gap-2 text-sm">
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="https://github.com/mhzmmrpt" target="_blank"><span class="flex items-center gap-2"><i
-                  data-lucide="github" class="h-4 w-4"></i> GitHub</span><i data-lucide="arrow-up-right"
-                class="h-4 w-4"></i></a>
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="https://www.instagram.com/_.maphans/" target="_blank"><span class="flex items-center gap-2"><i
-                  data-lucide="instagram" class="h-4 w-4"></i> Instagram</span><i data-lucide="arrow-up-right"
-                class="h-4 w-4"></i></a>
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="https://x.com/mhzmmprt" target="_blank"><span class="flex items-center gap-2"><i
-                  data-lucide="twitter" class="h-4 w-4"></i> Twitter/X</span><i data-lucide="arrow-up-right"
-                class="h-4 w-4"></i></a>
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="https://www.facebook.com/wisaruta.phansiriphat" target="_blank"><span
-                class="flex items-center gap-2"><i data-lucide="facebook" class="h-4 w-4"></i> Facebook</span><i
-                data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="border-b border-slate-200 py-12 dark:border-slate-800 md:py-20">
-    <div class="container">
-      <div class="mb-8 flex flex-col gap-3 md:mb-12 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">Projects</div>
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Selected work</h2>
-          <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">Projects I've Worked On and Applied in Real Life
-          </p>
-        </div>
-        <a href="#contact"
-          class="inline-flex items-center gap-1 text-sm text-slate-600 hover:underline dark:text-slate-300">Start a
-          project <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Project Card -->
-        <article
-          class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <div class="aspect-video w-full bg-slate-100 dark:bg-slate-800">
-            <img src="/img/js1.png" class="h-full w-full object-contain" alt="pj1" />
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold">Docker Server</h3>
-            <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Access devices remotely host server manage
-              security</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">html</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">javascript</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">css</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">c++</span>
-            </div>
-            <div class="mt-4 flex justify-end">
-              <a href="https://psoj-hosting.web.app/"
-                class="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-medium dark:border-slate-700">Visit
-                <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-            </div>
-          </div>
-        </article>
-        <article
-          class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <div class="aspect-video w-full bg-slate-100 dark:bg-slate-800">
-            <img src="/img/pj2.png" class="h-full w-full object-cover" alt="img pj2" />
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold">Bot-discord</h3>
-            <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Beta Time Machine: Backup Reinvented</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">javascript</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">json</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">typescript</span>
-            </div>
-            <div class="mt-4 flex justify-end">
-              <a href="https://github.com/mhzmmrpt/bot-discord"
-                class="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-medium dark:border-slate-700">Visit
-                <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-            </div>
-          </div>
-        </article>
-        <article
-          class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <div class="aspect-video w-full bg-slate-100 dark:bg-slate-800">
-            <img src="/img/pj3.png" class="h-full w-full object-contain" alt="imgpj3" />
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-semibold">HomeLab</h3>
-            <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">guide to getting MPEG-Streamer Working with your
-              klipper setup</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">PHP</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">shell</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">C++</span>
-              <span class="rounded-full bg-slate-100 px-2.5 py-1 dark:bg-slate-800">javascript</span>
-            </div>
-            <div class="mt-4 flex justify-end">
-              <a href="#"
-                class="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-medium dark:border-slate-700">Visit
-                <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG / NOTES -->
-  <section id="blog" class="border-b border-slate-200 py-12 dark:border-slate-800 md:py-20">
-    <div class="container">
-      <div class="mb-8 flex flex-col gap-3 md:mb-12 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">Notes</div>
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">GitHub</h2>
-          <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">sharing code on GitHub</p>
-        </div>
-        <a href="#"
-          class="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-medium dark:border-slate-700">
-          <i data-lucide="link" class="h-4 w-4"></i> GIT
-        </a>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <!-- Post card template -->
-        <article
-          class="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">VMwares</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">NSX-T 4.1</p>
-          <div class="mt-3 space-y-2 text-sm">
-            This is the network virtualization platform for the Software-Defined Data Center (SDDC).
-            <br>
-            VMware NSX 4.2.1.4 2025-06-04 24765227
-            <br>
-            VMware NSX 4.2.2.1 2025-06-04 24765084
-          </div>
-
-          <div class="mt-auto flex items-center justify-between pt-6 text-sm text-slate-500 dark:text-slate-400">
-            <div>Aug 2025 • By mhzmmprt</div>
-            <a href="https://www.virten.net/vmware/nsx/vmware-nsx-t-release-build-numbers/"
-              class="inline-flex items-center gap-1 hover:underline">Read <i data-lucide="arrow-right"
-                class="h-4 w-4"></i></a>
-          </div>
-        </article>
-        <article
-          class="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">Home Server</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Build a Docker host and Pi-hole</p>
-          <div class="mt-3 space-y-2 text-sm">
-            Getting a Docker container host up and running and starting to get my feet wet with containers.
-            <br>
-
-          </div>
-          <div class="mt-auto flex items-center justify-between pt-6 text-sm text-slate-500 dark:text-slate-400">
-            <div>Aug 2025 • By mhzmmprt</div>
-            <a href="#" class="inline-flex items-center gap-1 hover:underline">Read <i data-lucide="arrow-right"
-                class="h-4 w-4"></i></a>
-          </div>
-        </article>
-        <article
-          class="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">mbuild</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">My attempt at reverse engineering the makeblock's
-            mbuild communication protocol.</p>
-          <div class="mt-3 space-y-2 text-sm">
-            the pinout from top(1) to buttom(4)<br>
-            - UART TX
-            <br>
-            - UART RX
-          </div>
-          <div class="mt-auto flex items-center justify-between pt-6 text-sm text-slate-500 dark:text-slate-400">
-            <div>Aug 2025 • By mhzmmprt</div>
-            <a href="#" class="inline-flex items-center gap-1 hover:underline">Read <i data-lucide="arrow-right"
-                class="h-4 w-4"></i></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-12 md:py-20">
-    <div class="container">
-      <div class="mb-8 flex flex-col gap-3 md:mb-12 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">Contact</div>
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Drop your ideas here!</h2>
-          <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">We probably won’t respond, so don’t bother
-            sending. It’s just for show.</p>
-        </div>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <form
-          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 md:col-span-2"
-          onsubmit="event.preventDefault(); alert('ส่งข้อความเรียบร้อย (demo)'); this.reset();">
-          <div class="grid gap-3 md:grid-cols-2">
-            <input
-              class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900"
-              placeholder="Yourname" />
-            <input type="email"
-              class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900"
-              placeholder="Email" />
-          </div>
-          <input
-            class="mt-3 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900"
-            placeholder="Project" />
-          <textarea rows="6"
-            class="mt-3 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900"
-            placeholder="Detail"></textarea>
-          <div class="mt-4 flex items-center justify-between">
-            <div class="text-xs text-slate-500 dark:text-slate-400">Submission of this form constitutes your acceptance
-              of our Privacy Policy.</div>
-            <button type="submit"
-              class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700">
-              Sent <i data-lucide="mail" class="h-4 w-4"></i>
-            </button>
-          </div>
-        </form>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <h3 class="text-lg font-semibold">Contact</h3>
-          <p class="text-sm text-slate-500">but I'm can not check</p>
-          <div class="mt-3 space-y-3 text-sm">
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="mailto:you@example.com"><span class="flex items-center gap-2"><i data-lucide="mail"
-                  class="h-4 w-4"></i> mhzmmprt.ops@gmail.com</span><i data-lucide="arrow-up-right"
-                class="h-4 w-4"></i></a>
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="tel:+66612345678"><span class="flex items-center gap-2"><i data-lucide="phone" class="h-4 w-4"></i>
-                +66 623968657</span><i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
-            <a class="flex items-center justify-between rounded-lg border border-slate-200 p-2 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-              href="https://line.me/ti/p/r0pfhnl3w1" target="_blank"><span class="flex items-center gap-2"><i
-                  data-lucide="globe" class="h-4 w-4"></i> QR Contact</span><i data-lucide="arrow-up-right"
-                class="h-4 w-4"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-200 py-8 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
-    <div class="container flex flex-col items-center justify-between gap-4 sm:flex-row">
-      <div>© <span id="year"></span> mhzmmprt ll rights reserved.</div>
-      <div class="flex items-center gap-4">
-        <a href="#" class="hover:underline">Privacy</a>
-        <a href="#" class="hover:underline">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // icons
-    lucide.createIcons();
-
-    // Dark mode persistence
-    const root = document.documentElement;
-    const THEME_KEY = 'prefers-dark';
-    const saved = localStorage.getItem(THEME_KEY);
-    if (saved === 'light') root.classList.remove('dark');
-    if (saved === 'dark') root.classList.add('dark');
-
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const isDark = root.classList.toggle('dark');
-      localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
-      lucide.createIcons();
+  try {
+    const res = await fetch("https://webbynfc-backend.onrender.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
     });
 
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    const data = await res.json();
+    console.log("Response:", data);
+
+    if (data.success) {
+      window.location.href = "index.html";
+    } else {
+      alert("Login failed");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Server error");
+  }
+});
+
+</script>
 
 </body>
-
 </html>
