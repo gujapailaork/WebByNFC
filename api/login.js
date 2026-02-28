@@ -30,8 +30,11 @@ export default async function handler(req, res) {
       return res.json({ success: false });
     }
 
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json({ success: false });
-  }
+  } catch (error) {
+  console.error("LOGIN ERROR:", error);
+  return res.status(500).json({
+    success: false,
+    message: error.message
+  });
+}
 }
