@@ -95,7 +95,13 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     const data = await res.json();
 
 if (data.success) {
-  window.location.href = "home.html"; 
+
+  // บันทึกว่า login แล้ว
+  sessionStorage.setItem("access", "true");
+
+  // ไปหน้า home
+  window.location.href = "home.html";
+
 } else {
   alert(data.message || "Login failed");
 }
