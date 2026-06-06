@@ -30,3 +30,19 @@ body {
 .navbar-nav .dropdown-item:hover {
     background-color: rgb(255, 253, 253);
 }
+
+
+.create-account-btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #6366f1;
+    color: white;
+}
+
+.create-account-btn:hover {
+    background: #4f46e5;
+}
