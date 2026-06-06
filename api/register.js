@@ -10,7 +10,8 @@ export default async function handler(req, res) {
 
   if (req.method !== "POST") {
     return res.status(405).json({
-      success: false
+      success: false,
+      message: "Method not allowed"
     });
   }
 
@@ -18,34 +19,34 @@ export default async function handler(req, res) {
 
   try {
 
-    const result = await pool.query(
-      "SELECT * FROM users WHERE username = $1",
+    const existing = await pool.query(
+      "SELECT id FROM users WHERE username = $1",
       [username.trim()]
     );
 
-    if (result.rows.length === 0) {
+    if (existing.rows.length > 0) {
       return res.json({
         success: false,
-        message: "User not found"
+        message: "Username already exists"
       });
     }
 
-    const user = result.rows[0];
-
-    const validPassword = await bcrypt.compare(
+    const hashedPassword = await bcrypt.hash(
       password.trim(),
-      user.password
+      10
     );
 
-    if (!validPassword) {
-      return res.json({
-        success: false,
-        message: "Wrong password"
-      });
-    }
+    await pool.query(
+      "INSERT INTO users(username,password) VALUES($1,$2)",
+      [
+        username.trim(),
+        hashedPassword
+      ]
+    );
 
     return res.json({
-      success: true
+      success: true,
+      message: "Account created"
     });
 
   } catch (error) {
